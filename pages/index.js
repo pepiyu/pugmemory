@@ -47,7 +47,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-         <p>© 2021 Pub Memory</p>
+         <p>© 2021 Pug Memory</p>
       </footer>
     </div>
   )
