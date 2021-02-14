@@ -67,7 +67,7 @@
   border-radius: 25px;
   color: white;
   height: 50px;
-  font-size: 14px;
+  font-size: 25px;
   padding: 6px 12px;
   margin-bottom: 0;
   display: inline-block;
@@ -94,7 +94,6 @@
 }
 .button_start:hover,
 .button_start:focus {
-    color: #333;
     text-decoration: none;
 }
 .button_start:active {
@@ -115,7 +114,6 @@
   background-color: transparent;
   width: 200px;
   height: 200px;
-  border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -148,7 +146,7 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip_card_front {
-  background-color: #bbb;
+  background-color: sienna;
   color: black;
 }
 
