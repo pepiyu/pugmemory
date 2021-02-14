@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Nav from './Components/Nav'
+import Nav from '../components/Nav'
 import styles from '../styles/Home.module.css'
-
 import { FlipableCard } from '../components/Card'
 
 export default function Home() {
