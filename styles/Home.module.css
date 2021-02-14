@@ -57,20 +57,6 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-.card {
-  border: 1px solid #eaeaea;
-  background-color: sienna;
-  border-radius: 10px;
-  cursor: pointer; 
-}
-
-/* will use :active, hover for demo purposes only*/
-.card:hover,
-.card:active {
-  transition: transform 0.4s;
-  transform: rotateY(90deg);
-}
-
 .button_start {
   background-color: sienna;
   border-radius: 25px;
