@@ -3,10 +3,11 @@ import React, { useState }  from 'react'
 import styles from './Card.module.css'
 
 export function Card(props) {
-    const { img } = props
+    const { img, id, key } = props
     return (
         <div className={styles.cardFront}>
             <img 
+                //title={id}
                 src={img} 
                 height="200"
             />
@@ -26,10 +27,26 @@ export function CardBack() {
 }
 
 export function FlipableCard(props) {
+    const { id, memory, setMemory } = props
+
+
     const [isFlipped, setFlipped] = useState(false)
+    // @sergioruizsan no funciona... :(
+    const checkCard = id =>{
+        setFlipped(!isFlipped)
+    
+        console.log(id);
+        setMemory([
+            ...memory,
+            id
+        ])
+    }
+
+
     return (
         <div
             className={styles.flipCard}
+            //onClick={()=>checkCard(id)}>
             onClick={() => setFlipped(!isFlipped)}>
             <div className={`${styles.flipCardInner} ${ isFlipped ? styles.flipCardInnerFlipped : '' }`}>
                 <Card {...props} />

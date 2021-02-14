@@ -2,8 +2,58 @@ import Head from 'next/head'
 import Nav from '../components/Nav'
 import styles from '../styles/Home.module.css'
 import { FlipableCard } from '../components/Card'
+import React, { useState }  from 'react'
 
 export default function Home() {
+
+  const isChip = [
+    {
+      id: "chip_1",
+      img: "images/chip_1.png",
+      key: 1,
+    },
+    {
+      id: "chip_2",
+      img: "images/chip_2.png",
+      key: 2,
+
+    },
+    {
+      id: "chip_3",
+      img: "images/chip_3.png",
+      key: 3,
+
+    },
+    {
+      id: "chip_1",
+      img: "images/chip_1.png",
+      key: 4,
+
+    },
+    {
+      id: "chip_2",
+      img: "images/chip_2.png",
+      key: 5,
+
+    },
+    {
+      id: "chip_3",
+      img: "images/chip_3.png",
+      key: 6,
+
+    },
+
+  ]
+
+  const [memory, setMemory] = useState([
+
+  ])
+
+
+
+
+
+  
   return (
     <div className={styles.container}>
       <Nav></Nav>
@@ -22,12 +72,20 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <FlipableCard id='pug_1' img="images/chip_2.png"/>
-          <FlipableCard id='pug_2' img="images/chip_2.png"/>
-          <FlipableCard id='pug_3' img="images/chip_1.png"/>
-          <FlipableCard id='pug_4' img="images/chip_3.png"/>
-          <FlipableCard id='pug_5' img="images/chip_1.png"/>
-          <FlipableCard id='pug_6' img="images/chip_3.png"/>
+        {isChip
+          .sort(() => Math.random() - 0.5)
+          .map((element) => {
+            return (
+              <FlipableCard
+                id={element.id}
+                img={element.img}
+                memory={memory}
+                setMemory={setMemory}
+                isChip={isChip}
+                key={element.key}
+              />
+            );
+          })}
         </div>
       </main>
 
