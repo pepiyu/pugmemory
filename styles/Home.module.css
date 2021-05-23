@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.nav {
+  background-color: white;
+  border-radius: 25px;
+  font-size: 25px;
+  margin: 10px;
+  color: sienna;
+  padding: 10px;
+}
+
 .main {
   padding: 1rem 0;
   flex: 1;

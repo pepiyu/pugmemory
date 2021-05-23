@@ -1,11 +1,14 @@
 import Head from 'next/head'
+import Nav from '../components/Nav'
 import styles from '../styles/Home.module.css'
-
-import { FlipableCard } from '../components/Card'
+import MemoryBuilder from '../components/MemoryBuilder'
+import React  from 'react'
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
+      <Nav></Nav>
       <Head>
         <title>Pug Memory</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,16 +20,11 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          <button className={styles.button_start}>Start Game</button>
+          <button className={styles.button_start} onClick={()=>{ window.location='/'}}>Start Game</button>
         </p>
 
         <div className={styles.grid}>
-          <FlipableCard id='pug_1' img="images/chip_2.png"/>
-          <FlipableCard id='pug_2' img="images/chip_2.png"/>
-          <FlipableCard id='pug_3' img="images/chip_1.png"/>
-          <FlipableCard id='pug_4' img="images/chip_3.png"/>
-          <FlipableCard id='pug_5' img="images/chip_1.png"/>
-          <FlipableCard id='pug_6' img="images/chip_3.png"/>
+          <MemoryBuilder/>
         </div>
       </main>
 
