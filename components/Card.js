@@ -1,15 +1,17 @@
-import React, { useState }  from 'react'
+import React  from 'react'
+import PropTypes from 'prop-types'
+
+import Image from 'next/image'
 
 import styles from './Card.module.css'
 
 export function Card(props) {
-    const { img, id, key } = props
+    const { img } = props
     return (
         <div className={styles.cardFront}>
-            <img 
-                //title={id}
+            <Image 
                 src={img} 
-                height="200"
+                layout="fill"
             />
         </div>
     )
@@ -26,32 +28,31 @@ export function CardBack() {
     )
 }
 
+
+/**
+ * 
+ * @param {Object} props
+ * @param {string} props.isFlipped
+ * @param {function} props.onClick
+ */
 export function FlipableCard(props) {
-    const { id, memory, setMemory } = props
-
-
-    const [isFlipped, setFlipped] = useState(false)
-    // @sergioruizsan no funciona... :(
-    const checkCard = id =>{
-        setFlipped(!isFlipped)
-    
-        console.log(id);
-        setMemory([
-            ...memory,
-            id
-        ])
-    }
-
-
     return (
         <div
             className={styles.flipCard}
-            //onClick={()=>checkCard(id)}>
-            onClick={() => setFlipped(!isFlipped)}>
-            <div className={`${styles.flipCardInner} ${ isFlipped ? styles.flipCardInnerFlipped : '' }`}>
+            onClick={() => props.onClick? props.onClick() : null}>
+            <div className={`aIdx-${props.idx} ${styles.flipCardInner} ${ props.isFlipped ? styles.flipCardInnerFlipped : '' }`}>
                 <Card {...props} />
                 <CardBack/>
             </div>
         </div>
     )
+}
+
+FlipableCard.propTypes = {
+    isFlipped: PropTypes.bool.isRequired,
+    onClick: PropTypes.func,
+}
+  
+FlipableCard.defaultProps = {
+    isFlipped: false,
 }
